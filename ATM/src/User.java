@@ -3,8 +3,8 @@ package ATM.src;
 
 public class User {
 	
-	private String fName;
-	private String lName;
+	//private String fName;
+	//private String lName;
 	private String accN;
 	private float balanceS;
 	private float balanceC;
@@ -15,8 +15,8 @@ public class User {
 	
 	public User(String firstName, String lastName, String accountNumber) {
 		
-		this.fName = firstName;
-		this.lName = lastName;
+		//this.fName = firstName;
+		//this.lName = lastName;
 		this.accN = accountNumber;
 		
 	
