@@ -1,3 +1,5 @@
+package ATM.src;
+
 import java.util.Scanner;
 
 public class CheckingAccount {
@@ -5,12 +7,12 @@ public class CheckingAccount {
 	public static float balanceC = 0;
 	static int choice;
 	
-	public static void main(String args[]) {
+	public void main(String args[]) {
 		input = new Scanner(System.in);
 		cTransaction();
 	}
 	
-	public static void cTransaction() {
+	public float cTransaction() {
 		
 		int option;
 		
@@ -55,9 +57,10 @@ public class CheckingAccount {
 			System.out.println("Invalid option! Please use inputs 1, 2, or 3 \n");
 			cTransaction();
 	}
+	return this.balanceC;
 	}
 	
-	public static void newTransactionC() {
+	public void newTransactionC() {
 		System.out.println("Do you want to complete another transaction? \n Press 1 if yes \n Press 2 if you want to exit");
 		choice = input.nextInt();
 		if(choice == 1) {
@@ -68,12 +71,14 @@ public class CheckingAccount {
 			System.out.println("Error, invalid choice \n");
 			newTransactionC();
 		}
-		}{
+	}{
 	
-	return this.balanceC;
+	
 	
 	}
 }
+
+
 
 
 
