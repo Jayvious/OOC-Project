@@ -3,12 +3,14 @@ package ATM.src;
 import java.util.Scanner;
 
 public class CheckingAccount {
-	public static Scanner input;
-	public static float balanceC = 0;
+	public Scanner input;
+	public float balanceC = 0;
 	static int choice;
+	
 	
 	public void main(String args[]) {
 		input = new Scanner(System.in);
+		 
 		cTransaction();
 	}
 	

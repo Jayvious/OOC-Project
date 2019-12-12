@@ -3,8 +3,8 @@ package ATM.src;
 import java.util.Scanner;
 
 public class SavingsAccount {
-	public static Scanner input;
-	public static float balanceS = 0;
+	public Scanner input;
+	public float balanceS = 0;
 	static int choice;
 	
 	public void main(String args[]) {

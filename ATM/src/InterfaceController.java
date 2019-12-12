@@ -10,6 +10,7 @@ public class InterfaceController {
 	private float balanceC;
 	private SavingsAccount savAcc;
 	private CheckingAccount cheAcc;
+	private User cUser;
 	
 	/*public static void main(String args[]) {
 		
