@@ -7,10 +7,6 @@ public class SavingsAccount {
 	public float balanceS = 0;
 	static int choice;
 	
-	/*public void main(String args[]) {
-		input = new Scanner(System.in);
-		sTransaction(c);
-	}*/
 	
 	public float sTransaction(User cUser) {
 		int option = 0;

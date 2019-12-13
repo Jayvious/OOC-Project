@@ -88,21 +88,7 @@ public class User {
 	}
 	
 	
-	/*public void setCheckingAccount(String aNum) {
 		
-		//Grab the checking account for the user depending on their aNum
-		checkA = new CheckingAccount();
-		checkA.balanceC = 100000;
-		
-		
-	}*/
-	
-	/*public void setSavingAccount(String aNum) {
-		//Grab the checking account for the user depending on their aNum
-		saveA = new SavingsAccount();
-		saveA.balanceS = 400;
-	}*/
-	
 //import csv
 	public ArrayList<User> importFile(String filepath) {
 		ArrayList<User> userInfo = new ArrayList<User>();
@@ -157,7 +143,6 @@ public class User {
 	
 		
 		
-//export
 	
 	
 	

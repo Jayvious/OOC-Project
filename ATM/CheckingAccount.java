@@ -10,11 +10,7 @@ public class CheckingAccount {
 	
 	
 	
-	/*public void main(String args[]) {
-		input = new Scanner(System.in);
-		 
-		cTransaction();
-	}*/
+	
 	
 	public float cTransaction(User cUser) {
 		

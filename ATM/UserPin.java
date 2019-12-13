@@ -12,6 +12,11 @@ package ATM.src;
 		public static void main(String[] args) throws Exception 
 		{
 			// TODO Auto-generated method stub
+			// We only had time to work on the cases we created in the csv file
+			//For each account it has a pin number and account number
+			//if the account number is in the csv we will access the users balance for Checking and savings accounts
+			//They can then manipulate those accounts in their own separate class
+			
 
 		ArrayList<User> userList = cUser.importFile("C:\\Users\\jiw25\\eclipse-workspace\\ATM\\UsersPin3.csv");
 		
@@ -19,8 +24,7 @@ package ATM.src;
 		Scanner s = new Scanner (System.in);
 		int rUser = 0;
 		System.out.println("Welcome to the bank");
-		//System.out.print("Enter Your First Name\n");
-		//String name = s.nextLine();
+		
 		System.out.print("Enter Your Account\n");
 		String acc = s.nextLine();
 		if(acc!=null && acc!="") {
@@ -43,13 +47,10 @@ package ATM.src;
 			
 			
 		
-		//System.out.print("Enter Your Pin\n");
-		//String pin = s.nextLine();
 		
-		//System.out.print("Enter Your Savings Balance\n");
 		String balanceS;
 		
-		//System.out.print("Enter Your Checkings Balance\n");
+		
 		String balanceC;
 			
 		if((pin == null || pin == "" )|| ( acc == null || acc == "")) {
@@ -61,24 +62,10 @@ package ATM.src;
 		
 		
 		cUser = new User( acc, pin, balanceC, balanceS);
-
-		//System.out.println(cUser.toString());
 		
 		
 		userList.add(cUser);
-		//System.out.println(userList.toString());
 		
-		/*while (entry != pinNumber )
-		{
-		
-		System.out.println("\\nINCORRECT PIN. TRY AGAIN.");
-		System.out.print("ENTER YOUR PIN:");
-		entry = s.nextInt();
-		}
-		System.out.println("\nPIN ACCEPTED. YOU NOW HAVE ACCESS TO YOU ACCOUNT.");
-		
-		}*/
-		//System.out.println(cUser.balanceC);
 		System.out.println("\nPIN ACCEPTED. YOU NOW HAVE ACCESS TO YOU ACCOUNT.");
 		
 		newScreen.chooseAccount(cUser);

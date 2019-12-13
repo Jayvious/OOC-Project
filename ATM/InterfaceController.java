@@ -9,37 +9,6 @@ public class InterfaceController {
 	private SavingsAccount savAcc = new SavingsAccount();
 	private CheckingAccount cheAcc = new CheckingAccount();
 	
-	
-	/*public static void main(String args[]) {
-		
-		
-		Random r = new Random();
-		
-		Scanner s = new Scanner(System.in);
-		System.out.println("Can I have your Account Number and 4 digit-PIN:");
-		
-		
-		
-		
-		String accN = String.format("%04d", r.nextInt(10000));
-		
-		float balanceS = 0;
-		float balanceC = 0;
-		
-		//Person user = new Person(currentUser, lastNamer, accN, balanceS, balanceC);
-		//user.chooseAccount();
-		ArrayList<Float> acountNumbers = new ArrayList<Float>();
-		
-		
-		
-		System.out.println("Welcome to your ATM" + accN);
-		
-		
-		
-		
-		
-	}*/
-	
 public void chooseAccount(User cUser) {
 		
 		float balanceS;
@@ -72,6 +41,7 @@ public void chooseAccount(User cUser) {
 			break;
 		case 3:
 			//return both balances
+			//this only returns the balance before the manipulation of the accounts
 			balanceS = cUser.balanceS;
 			balanceC = cUser.balanceC;
 			System.out.println("You have $" + balanceS + " in your Savings Account.");
@@ -84,12 +54,6 @@ public void chooseAccount(User cUser) {
 			
 				
 		}
-	
-	
-	
-	
-	
-	
 	
 
 
