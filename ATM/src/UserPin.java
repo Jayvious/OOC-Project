@@ -7,9 +7,9 @@ package ATM.src;
 	public class UserPin 
 	{
 
-		private static InterfaceController newScreen = new InterfaceController();
-		private static User cUser;
-		public static void main(String[] args) 
+		public static InterfaceController newScreen = new InterfaceController();
+		public static User cUser  = new User();
+		public static void main(String[] args) throws Exception 
 		{
 			// TODO Auto-generated method stub
 
@@ -25,8 +25,19 @@ package ATM.src;
 		System.out.print("Enter Your Pin\n");
 		String pin = s.nextLine();
 		
-		ArrayList<User> currentUser = cUser.importFile("C:\\Users\\jiw25\\Downloads\\OOC-Project-master.zip\\OOC-Project-master\\ATM");
+		System.out.print("Enter Your Savings Balance\n");
+		String balanceS = s.nextLine();
 		
+		System.out.print("Enter Your Checkings Balance\n");
+		String balanceC = s.nextLine();
+		
+		cUser = new User(name, acc, pin, balanceS, balanceC);
+
+		System.out.println(cUser.toString());
+		
+		ArrayList<User> userList = cUser.importFile("C:\\Users\\jiw25\\eclipse-workspace\\ATM\\UsersPin.csv");
+		userList.add(cUser);
+		System.out.println(userList.toString());
 		
 		/*while (entry != pinNumber )
 		{
@@ -38,9 +49,10 @@ package ATM.src;
 		System.out.println("\nPIN ACCEPTED. YOU NOW HAVE ACCESS TO YOU ACCOUNT.");
 		
 		}*/
-		int pinInt = Integer.parseInt(pin);
+		
 		System.out.println("\nPIN ACCEPTED. YOU NOW HAVE ACCESS TO YOU ACCOUNT.");
-		newScreen.chooseAccount(pinInt);
+		
+		newScreen.chooseAccount(cUser);
 		
 		}
 	}

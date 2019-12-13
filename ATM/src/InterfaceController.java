@@ -1,16 +1,14 @@
 package ATM.src;
 
-import java.util.ArrayList;
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class InterfaceController {
 	
-	private float balanceS;
-	private float balanceC;
-	private SavingsAccount savAcc;
-	private CheckingAccount cheAcc;
-	private User cUser;
+	
+	private SavingsAccount savAcc = new SavingsAccount();
+	private CheckingAccount cheAcc = new CheckingAccount();
+	
 	
 	/*public static void main(String args[]) {
 		
@@ -42,8 +40,10 @@ public class InterfaceController {
 		
 	}*/
 	
-public void chooseAccount(float accN) {
+public void chooseAccount(User cUser) {
 		
+		float balanceS;
+		float balanceC;
 		Scanner s = new Scanner(System.in);
 		
 		System.out.println("Please choose an account:");
@@ -61,26 +61,26 @@ public void chooseAccount(float accN) {
 		
 		case 1:
 			//checkings
-			cheAcc.cTransaction();
+			cheAcc.cTransaction(cUser);
 			
 			break;
 		case 2:
 			//call savings
-			savAcc.sTransaction();
+			savAcc.sTransaction(cUser);
 			
 			//update balance
 			break;
 		case 3:
 			//return both balances
-			balanceS = savAcc.balanceS;
-			balanceC = cheAcc.balanceC;
+			balanceS = cUser.balanceS;
+			balanceC = cUser.balanceC;
 			System.out.println("You have $" + balanceS + " in your Savings Account.");
 			System.out.println("You have $" + balanceC + " in your Checkings Account.");
 			
 			break;
 		default:
 			System.out.println("Invalid selection");
-			chooseAccount(accN);
+			chooseAccount(cUser);
 			
 				
 		}

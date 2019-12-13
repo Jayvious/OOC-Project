@@ -10,13 +10,14 @@ import java.util.Scanner;
 
 public class User {
 	
-	private String fName;
-	private String accN;	
-	private String pin;
-	private float balanceS;
-	private float balanceC;
-	private CheckingAccount checkA;
-	private SavingsAccount saveA;
+	public String fName;
+	public String accN;	
+	public String pin;
+	public float balanceS;
+	public float balanceC;
+	public CheckingAccount checkA;
+	public SavingsAccount saveA;
+	
 
 	
 	
@@ -26,9 +27,9 @@ public class User {
 		this.pin = "0000";
 	}
 	
-	public User(String firstName, String accountNumber, String pin) {
+	public User(String firstName, String accountNumber, String pin, String balanceS, String balanceC) {
 		
-		try {
+		/*	try {
 			this.setFirstName(fName);
 			this.setAccountNumber(accN);
 			this.setPin(pin);
@@ -36,23 +37,29 @@ public class User {
 			this.fName = "Test";
 			this.accN = "18879";
 			this.pin = "0000";
-		}
+		}*/
+		this.fName = firstName;
+		this.accN = accountNumber;
+		this.pin = pin;
+		this.balanceS = Float.parseFloat(balanceS);
+		this.balanceC = Float.parseFloat(balanceC);
+		
 	
 	}
 	//first name
 	/*public String getFirstName() {
 		return this.fName;
-	}*/
+	}
 	public void setFirstName(String first) throws Exception {
 		if(first==null || first=="") {
 			throw new Exception("Invalid first name");
 		}
 		this.fName=first;
-	}
+	}*/
 	//Account number
 	/*public String getAccountNumber() {
 		return this.accN;
-	}*/
+	}
 	public void setAccountNumber(String accN) throws Exception {
 		if(accN.length() < 5 || accN.length() > 5) {
 			throw new Exception("Account number is 5 digits");
@@ -60,16 +67,23 @@ public class User {
 		this.accN = accN;
 	}
 	//last name
-	/*public String getPin() {
+	public String getPin() {
 		return this.pin;
 	}*/
-	public void setPin(String pin) throws Exception {
+	/*public void setPin(String pin) throws Exception {
 		if(pin==null || pin=="" || pin.length() < 4 || pin.length() > 4) {
 			throw new Exception("Invalid pin number");
 		}
 		this.pin=pin;
+	}*/
+	/*public float getBalanceS() {
+		
+		return this.balanceS;
 	}
-	
+	public float getBalanceC() {
+		
+		return this.balanceC;
+	}*/
 
 	
 	public String toString() {
@@ -82,19 +96,20 @@ public class User {
 	}
 	
 	
-	public void getCheckingAccount(String aNum) {
+	/*public void setCheckingAccount(String aNum) {
 		
 		//Grab the checking account for the user depeding on their aNum
-		CheckingAccount cAcc = new CheckingAccount();
-		cAcc = this.checkA;
+		checkA = new CheckingAccount();
+		checkA.balanceC = 100000;
 		
-	}
+		
+	}*/
 	
-	public void getSavingAccount(String aNum) {
+	/*public void setSavingAccount(String aNum) {
 		//Grab the checking account for the user depeding on their aNum
-		SavingsAccount sAcc = new SavingsAccount();
-		sAcc = saveA;
-	}
+		saveA = new SavingsAccount();
+		saveA.balanceS = 400;
+	}*/
 	
 //import csv
 	public static ArrayList<User> importFile(String filepath) {
@@ -110,6 +125,8 @@ public class User {
 			
 			String account="";
 			String pin="";
+			String balanceC="";
+			String balanceS="";
 			String row= a.nextLine();
 			String[] breaks = row.split(",");
 			
@@ -117,6 +134,8 @@ public class User {
 			first=breaks[0];
 			account=breaks[1];
 			pin=breaks[2];
+			balanceC = breaks[3];
+			balanceS = breaks[4];
 			}
 			catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("need first name, account number, and pin");
@@ -131,7 +150,7 @@ public class User {
 				continue;
 			}
 
-		User person = new User(first,account, pin);
+		User person = new User(first,account, pin, balanceC, balanceS);
 			userInfo.add(person);
 			
 		}

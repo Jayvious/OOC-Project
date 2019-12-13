@@ -3,20 +3,24 @@ package ATM.src;
 import java.util.Scanner;
 
 public class CheckingAccount {
-	public Scanner input;
+	public Scanner input = new Scanner(System.in);
+
 	public float balanceC = 0;
 	static int choice;
 	
 	
-	public void main(String args[]) {
+	
+	/*public void main(String args[]) {
 		input = new Scanner(System.in);
 		 
 		cTransaction();
-	}
+	}*/
 	
-	public float cTransaction() {
+	public float cTransaction(User cUser) {
 		
-		int option;
+		int option = 0;
+		
+		balanceC = cUser.balanceC;
 		
 		System.out.println("Welcome to your CHECKINGS account");
 		System.out.println("Press a command key to select your action");
@@ -33,8 +37,9 @@ public class CheckingAccount {
 			System.out.println("Please enter an amount you wish to deposit: ");
 			depositC = input.nextFloat();
 			balanceC = balanceC + depositC;
+			cUser.balanceC = balanceC;
 			System.out.println("You deposited $" + depositC + ". Your new balance is $" + balanceC);
-			newTransactionC();
+			newTransactionC(cUser);
 		break;
 		
 		case 2:
@@ -45,33 +50,36 @@ public class CheckingAccount {
 			System.out.println("Error, you don't have that much money in the account to withdraw from");
 			} else {
 				balanceC = balanceC - amount;
+				cUser.balanceC = balanceC;
 				System.out.println("You have withdrawn $"+ amount + ". Your new balance is $"+ balanceC);
-				newTransactionC();
+				newTransactionC(cUser);
 			}
 				
 		break;
 		
 		case 3:
 			System.out.println("You have a balance of $" + balanceC);
-			newTransactionC();
+			newTransactionC(cUser);
+			break;
 			
 		default:
 			System.out.println("Invalid option! Please use inputs 1, 2, or 3 \n");
-			cTransaction();
+			cTransaction(cUser);
 	}
-	return this.balanceC;
+	cUser.balanceC = balanceC;
+	return cUser.balanceC;
 	}
 	
-	public void newTransactionC() {
+	public void newTransactionC(User cUser) {
 		System.out.println("Do you want to complete another transaction? \n Press 1 if yes \n Press 2 if you want to exit");
 		choice = input.nextInt();
 		if(choice == 1) {
-			cTransaction();
+			cTransaction(cUser);
 		} else if(choice == 2) {
 			System.out.println("Thank you for using this ATM, have a good day!");
 		} else {
 			System.out.println("Error, invalid choice \n");
-			newTransactionC();
+			newTransactionC(cUser);
 		}
 	}{
 	
